@@ -1,7 +1,7 @@
 /datum/necro_class
 	var/display_name = ""
 	var/desc = ""
-	var/ui_icon
+	var/ui_icon = 'necromorphs/icons/necromorphs/base_necromorph.dmi'
 
 	var/tier = 0
 
@@ -21,6 +21,8 @@
 	var/melee_damage_lower = 10
 	var/melee_damage_upper = 10
 	var/armour_penetration = 0
+
+	var/list/necro_armor
 
 	// *** Health *** //
 	///Maximum health a necromorph has.
@@ -77,6 +79,9 @@
 	///Whether the necromorph enters and crawls through vents silently
 	var/silent_vent_crawl = FALSE
 
+	//TODO: Get rid of this
+	var/implemented = FALSE
+
 /datum/necro_class/proc/load_data(mob/living/carbon/human/necromorph/necro)
 	for(var/trait in traits)
 		ADD_TRAIT(necro, trait, NECROMORPH_TRAIT)
@@ -86,6 +91,12 @@
 		action_datum.Grant(necro)
 
 	necro.armor = getArmor(arglist(armor))
+
+	necro.necro_armors = getNecroArmor(arglist(necro_armor))
+	necro.dodge_shield = necro.necro_armors.getRating(ARMOR_PROTECTION)
+	if(necro.hud_used)
+		var/datum/hud/necromorph/hud = necro.hud_used
+		hud.update_shieldbar()
 
 	necro.melee_damage_upper = melee_damage_upper
 

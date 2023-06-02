@@ -27,6 +27,7 @@
 	base_pixel_y = 0
 	pixel_x = -8
 	has_human_mood = FALSE
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	var/nicknumber = 0
 
 	/// "Shield" that appears after dodging. Absorbs incom
@@ -76,6 +77,8 @@
 
 	/// How good are we at penetrating armour
 	var/armour_penetration = 0
+
+	var/datum/necro_armor/necro_armors
 
 	var/attack_effect = ATTACK_EFFECT_SLASH
 	/// Signal controlling this necromorph at the moment
