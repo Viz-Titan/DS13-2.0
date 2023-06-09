@@ -5,15 +5,14 @@ DS SCL Shotgun
 /obj/item/gun/ballistic/shotgun/scl_shotgun //Has no bola mode yet
 	name = "\improper SCL Shotgun"
 	desc = "The SCL Shotgun is a close to medium-ranged weapon developed by the Sovereign Colonies Armed Forces and utilized by SCAF Legionaries. \
-	The shotgun has remained in use in private security and police departments as a riot-control tool, given its ability to fire bolas shells for capture and arrest, or lethal slugs in life-threatening situations. \
+	The shotgun has remained in use in private security and police departments as a riot-control tool, given its ability to fire incapacitating shells for capture and arrest, or lethal slugs in life-threatening situations. \
 	The SCL Shotgun is magazine loaded and is effective at short range or for fugitive capture."
 	icon = 'icons/obj/guns_ds13/guns48x32.dmi'
 	icon_state = "scl_shotgun"
+	lefthand_file = 'necromorphs/icons/mob/inhands/guns/guns_left.dmi'
+	righthand_file = 'necromorphs/icons/mob/inhands/guns/guns_right.dmi'
 	inhand_icon_state = "scl_shotgun-wielded"
-	//worn_icon_state =
-	var/icon_loaded = "scl_shotgun_loaded"//check out
-	//lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
-	//righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	// var/icon_loaded = "scl_shotgun_loaded"//check out
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	weapon_weight = WEAPON_MEDIUM
@@ -24,19 +23,27 @@ DS SCL Shotgun
 	//OLD	list(mode_name = "shotgun", fire_delay = 1 SECONDS),
 	//OLD	list(mode_name = "bolas", projectile_type = /obj/item/projectile/bullet/shotgun/bola, fire_sound = 'sound/weapons/bolathrow.ogg', fire_delay = 1 SECONDS))
 	fire_sound = 'sound/weapons/gun/shotgun/shot_alt.ogg'
-	//actions_types = list() Original
-	fire_select_modes = list(SELECT_SEMI_AUTOMATIC) //PARIAH EDIT
+	slot_flags = ITEM_SLOT_BELT
 	//mag_display = TRUE    //Does it?
 	empty_indicator = TRUE
 	empty_alarm = TRUE
 	//special_mags = TRUE     Future endeaver if desired
-	mag_display_ammo = TRUE
+	mag_display_ammo = TRUE //Check for, and which sprite
 	semi_auto = TRUE
 	internal_magazine = FALSE
 	tac_reloads = TRUE
 
 /obj/item/gun/ballistic/shotgun/scl_shotgun/no_mag
 	spawnwithmagazine = FALSE
+
+/obj/item/gun/ballistic/shotgun/scl_shotgun/bola
+
+// /obj/item/gun/ballistic/shotgun/scl_shotgun/update_icon()
+// 	. = ..()
+// 	if(ammo_magazine)
+// 		icon_state = icon_loaded
+// 	else
+// 		icon_state = initial(icon_state)
 
 /**
 Magazines
@@ -118,13 +125,6 @@ Ammo casings for the mags
 /**
 Projectiles for the ammo casings
 */
-
-///obj/item/gun/projectile/shotgun/scl_shotgun/update_icon()
-//	. = ..()
-//	if(ammo_magazine)
-//		icon_state = icon_loaded
-//	else
-//		icon_state = initial(icon_state)
 
 ///obj/item/gun/projectile/shotgun/scl_shotgun/MouseDrop(over_object)
 //	if(ammo_magazine)

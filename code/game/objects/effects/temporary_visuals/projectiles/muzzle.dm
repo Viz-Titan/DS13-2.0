@@ -41,6 +41,11 @@
 
 // DS13 //
 
+/obj/effect/projectile/ds_muzzle
+	icon = 'icons/obj/guns_ds13/projectiles_effects.dmi'
+	light_power = 0.7
+	light_color = COLOR_DEEP_SKY_BLUE
+
 /obj/effect/projectile/ds_muzzle/pulse
 	icon_state = "muzzle_pulse"
 	light_power = 0.7
@@ -67,12 +72,12 @@
 
 /obj/effect/projectile/ds_muzzle/bullet//I dunno if this is used or unique but keepin it for now
 	icon_state = "muzzle_bullet"
-	light_range = 5
+	//light_range = 5
 	light_color = COLOR_MUZZLE_FLASH
 
 
 /obj/effect/projectile/ds_muzzle/bio
-	light_range = 0
+	//light_range = 0
 	light_power = 0
 	light_color = COLOR_MUZZLE_FLASH
 	icon = 'icons/effects/effects.dmi'

@@ -52,7 +52,7 @@
 
 /obj/effect/projectile/ds_impact
 	name = "impact"
-	icon = 'icons/obj/guns_ds13/projectiles_impact.dmi'
+	icon = 'icons/obj/guns_ds13/projectiles_effects.dmi'
 
 /obj/effect/projectile/ds_impact/pulse
 	icon_state = "pulse_hit"
